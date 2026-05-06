@@ -99,18 +99,6 @@ function testingEjercicio2() {
   `;
 }
 
-function testingEjercicio2() {
-  const testingResta = document.getElementById("testingResta");
-  const prueba = restar(10, 4);
-
-  testingResta.innerHTML = `
-    <p>🧪 Testing 2</p>
-    <p>Prueba: restar(10, 4)</p>
-    <p>Resultado esperado: 6</p>
-    <p>${prueba === 6 ? "✅ Aprobado" : "❌ Falló"}</p>
-  `;
-}
-
 function cargarEjercicio3() {
   const resultado = document.getElementById("resultado");
 
