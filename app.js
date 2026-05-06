@@ -45,41 +45,58 @@ function testingEjercicio1() {
     <p>${prueba === 5 ? "✅ Aprobado" : "❌ Falló"}</p>
   `;
 }
-
 function cargarEjercicio2() {
   const resultado = document.getElementById("resultado");
 
   resultado.innerHTML = `
-    <h3>Ejercicio 2: Restar dos números</h3>
+    <h3>Ejercicio 2: Analizar texto</h3>
 
-    <input type="number" id="num1Resta" placeholder="Primer número">
-    <input type="number" id="num2Resta" placeholder="Segundo número">
+    <input type="text" id="textoAnalizar" placeholder="Escribe un texto">
 
     <br><br>
 
-    <button onclick="procesarResta()">Calcular resta</button>
+    <button onclick="procesarTexto()">Analizar</button>
     <button onclick="testingEjercicio2()">Testing 2</button>
 
-    <div id="resultadoResta"></div>
-    <div id="testingResta"></div>
+    <div id="resultadoTexto"></div>
+    <div id="testingTexto"></div>
   `;
 }
 
-function restar(a, b) {
-  return a - b;
+function analizarTexto(texto) {
+  if (texto === texto.toUpperCase()) {
+    return "MAYÚSCULAS";
+  }
+
+  if (texto === texto.toLowerCase()) {
+    return "minúsculas";
+  }
+
+  return "Mixto";
 }
 
-function procesarResta() {
-  const a = Number(document.getElementById("num1Resta").value);
-  const b = Number(document.getElementById("num2Resta").value);
-  const resultadoResta = document.getElementById("resultadoResta");
+function procesarTexto() {
+  const texto = document.getElementById("textoAnalizar").value;
+  const resultadoTexto = document.getElementById("resultadoTexto");
 
-  if (isNaN(a) || isNaN(b)) {
-    resultadoResta.innerHTML = "⚠️ Ingresa dos números válidos.";
+  if (!texto) {
+    resultadoTexto.innerHTML = "⚠️ Ingresa un texto válido.";
     return;
   }
 
-  resultadoResta.innerHTML = `✅ Resultado: ${a} - ${b} = <b>${restar(a, b)}</b>`;
+  resultadoTexto.innerHTML = `✅ Resultado: ${analizarTexto(texto)}`;
+}
+
+function testingEjercicio2() {
+  const testingTexto = document.getElementById("testingTexto");
+  const prueba = analizarTexto("HOLA");
+
+  testingTexto.innerHTML = `
+    <p>🧪 Testing 2</p>
+    <p>Prueba: analizarTexto("HOLA")</p>
+    <p>Resultado esperado: MAYÚSCULAS</p>
+    <p>${prueba === "MAYÚSCULAS" ? "✅ Aprobado" : "❌ Falló"}</p>
+  `;
 }
 
 function testingEjercicio2() {
@@ -247,7 +264,7 @@ function testingGlobal() {
     <h3>Testing Global</h3>
 
     <p>${sumar(2, 3) === 5 ? "✅" : "❌"} Ejercicio 1: suma aprobada.</p>
-    <p>${restar(10, 4) === 6 ? "✅" : "❌"} Ejercicio 2: resta aprobada.</p>
+   ${analizarTexto("HOLA") === "MAYÚSCULAS" ? "✅" : "❌"} Ejercicio 2: análisis de texto aprobado.
     <p>${multiplicar(3, 4) === 12 ? "✅" : "❌"} Ejercicio 3: multiplicación aprobada.</p>
     <p>${esPar(8) === true ? "✅" : "❌"} Ejercicio 4: número par aprobado.</p>
     <p>${promedio(4, 5, 6) === 5 ? "✅" : "❌"} Ejercicio 5: promedio aprobado.</p>
