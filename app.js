@@ -264,7 +264,7 @@ function testingGlobal() {
     <h3>Testing Global</h3>
 
     <p>${sumar(2, 3) === 5 ? "✅" : "❌"} Ejercicio 1: suma aprobada.</p>
-   ${analizarTexto("HOLA") === "MAYÚSCULAS" ? "✅" : "❌"} Ejercicio 2: análisis de texto aprobado.
+    <p>${analizarTexto("HOLA") === "MAYÚSCULAS" ? "✅" : "❌"} Ejercicio 2: análisis de texto aprobado.</p>
     <p>${multiplicar(3, 4) === 12 ? "✅" : "❌"} Ejercicio 3: multiplicación aprobada.</p>
     <p>${esPar(8) === true ? "✅" : "❌"} Ejercicio 4: número par aprobado.</p>
     <p>${promedio(4, 5, 6) === 5 ? "✅" : "❌"} Ejercicio 5: promedio aprobado.</p>
